@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -10,10 +10,9 @@ const Login = ({ checkAuthentication }) => {
     password: "",
   });
 
-  // State for error handling
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  // Function to handle input changes
   const handleInputChange = (e) => {
     setCredentials({
       ...credentials,
@@ -21,39 +20,58 @@ const Login = ({ checkAuthentication }) => {
     });
   };
 
-  // Function to handle login
   const handleLogin = async () => {
+    setLoading(true);
+
     try {
-      // Make a POST request to the login endpoint
       const response = await axios.post(
         "http://localhost:3000/api/login",
         credentials,
         { withCredentials: true }
       );
 
-      // Handle successful login
       console.log(response.data.message);
 
-      // Check authentication status after login
       checkAuthentication();
-      
-      // Redirect to the home component
+
       navigate("/home");
     } catch (err) {
-      // Handle login error
       setError("Invalid email or password");
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <div className="w-96 bg-white p-8 rounded shadow">
+      <div className="w-96 bg-white p-8 rounded shadow flex flex-col items-center">
+        <img src="/logo_bgp.png" alt="logo" className="h-48 mb-4" />
         <h2 className="text-2xl font-semibold mb-4">Login</h2>
 
-        {/* Display error message if exists */}
-        {error && <p className="text-red-500 mb-4">{error}</p>}
+        {/* Display error message with horizontal line animation */}
+        {error && (
+          <div className="relative w-full bg-red-500 text-white p-2 mb-4">
+            {error}
+            <div
+              className="error-line"
+              style={{
+                position: "absolute",
+                bottom: "0",
+                left: "0",
+                height: "2px",
+                width: "100%",
+                backgroundColor: "white",
+                transformOrigin: "right",
+                transform: "scaleX(0)",
+                transition: "transform 5s linear",
+              }}
+            ></div>
+          </div>
+        )}
 
-        {/* Email input */}
         <input
           type="email"
           name="email"
@@ -63,7 +81,6 @@ const Login = ({ checkAuthentication }) => {
           className="w-full p-2 mb-4 border rounded"
         />
 
-        {/* Password input */}
         <input
           type="password"
           name="password"
@@ -73,12 +90,16 @@ const Login = ({ checkAuthentication }) => {
           className="w-full p-2 mb-4 border rounded"
         />
 
-        {/* Login button */}
         <button
           onClick={handleLogin}
-          className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 focus:outline-none"
+          className={`w-full ${
+            loading
+              ? "bg-gray-500 cursor-not-allowed"
+              : "bg-blue-500 hover:bg-blue-600"
+          } text-white p-2 rounded focus:outline-none transition-all duration-300`}
+          disabled={loading}
         >
-          Login
+          {loading ? "Logging in..." : "Login"}
         </button>
       </div>
     </div>

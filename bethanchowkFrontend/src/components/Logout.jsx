@@ -21,7 +21,7 @@ const LogoutComponent = () => {
   return (
     <button
       onClick={handleLogout}
-      className="bg-red-500 text-white p-2 rounded hover:bg-red-600 focus:outline-none"
+      className="bg-red-700 text-white  space-x-0 p-2 rounded-lg hover:bg-red-600 focus:outline-none"
     >
       Logout
     </button>
