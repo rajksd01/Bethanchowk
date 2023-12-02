@@ -1,0 +1,64 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Population",
+      "nepali_term": "जनसंख्या विवरण",
+      "iframe_src": "https://app.powerbi.com/view?r=eyJrIjoiOWE2NGI2OWYtNDFjYy00N2E0LTg3ZDYtZjczNWI5ZjM3MGQ5IiwidCI6IjQyYjY5MjNhLWZmMzUtNDY5Yy05YzZhLWZhNDkwY2M4YTY0MSJ9"
+    },
+    {
+      "id": 2,
+      "name": "Health",
+      "nepali_term": "स्वास्थ्य विवरण",
+      "iframe_src": "https://app.powerbi.com/view?r=eyJrIjoiOWE2NGI2OWYtNDFjYy00N2E0LTg3ZDYtZjczNWI5ZjM3MGQ5IiwidCI6IjQyYjY5MjNhLWZmMzUtNDY5Yy05YzZhLWZhNDkwY2M4YTY0MSJ9"
+    },
+    {
+      "id": 3,
+      "name": "Infrastructure",
+      "nepali_term": "पूर्वाधार विवरण",
+      "iframe_src": "https://app.powerbi.com/view?r=eyJrIjoiOWE2NGI2OWYtNDFjYy00N2E0LTg3ZDYtZjczNWI5ZjM3MGQ5IiwidCI6IjQyYjY5MjNhLWZmMzUtNDY5Yy05YzZhLWZhNDkwY2M4YTY0MSJ9"
+    },
+    {
+      "id": 4,
+      "name": "Occupation",
+      "nepali_term": "पेशा विवरण",
+      "iframe_src": "https://app.powerbi.com/view?r=eyJrIjoiOWE2NGI2OWYtNDFjYy00N2E0LTg3ZDYtZjczNWI5ZjM3MGQ5IiwidCI6IjQyYjY5MjNhLWZmMzUtNDY5Yy05YzZhLWZhNDkwY2M4YTY0MSJ9"
+    },
+    {
+      "id": 5,
+      "name": "Education",
+      "nepali_term": "शिक्षा",
+      "iframe_src": "https://app.powerbi.com/view?r=eyJrIjoiOWE2NGI2OWYtNDFjYy00N2E0LTg3ZDYtZjczNWI5ZjM3MGQ5IiwidCI6IjQyYjY5MjNhLWZmMzUtNDY5Yy05YzZhLWZhNDkwY2M4YTY0MSJ9"
+    },
+    {
+      "id": 6,
+      "name": "Financial",
+      "nepali_term": "आर्थिक विवरण",
+      "iframe_src": "https://app.powerbi.com/view?r=eyJrIjoiOWE2NGI2OWYtNDFjYy00N2E0LTg3ZDYtZjczNWI5ZjM3MGQ5IiwidCI6IjQyYjY5MjNhLWZmMzUtNDY5Yy05YzZhLWZhNDkwY2M4YTY0MSJ9"
+    },
+    {
+      "id": 7,
+      "name": "Waste and Sewage ",
+      "nepali_term": "फोहोर र ढल विवरण",
+      "iframe_src": "https://app.powerbi.com/view?r=eyJrIjoiOWE2NGI2OWYtNDFjYy00N2E0LTg3ZDYtZjczNWI5ZjM3MGQ5IiwidCI6IjQyYjY5MjNhLWZmMzUtNDY5Yy05YzZhLWZhNDkwY2M4YTY0MSJ9"
+    },
+    {
+      "id": 8,
+      "name": "Information, Training and Women Involvement ",
+      "nepali_term": "सूचना, तालिम र महिला सहभागिता",
+      "iframe_src": "https://app.powerbi.com/view?r=eyJrIjoiOWE2NGI2OWYtNDFjYy00N2E0LTg3ZDYtZjczNWI5ZjM3MGQ5IiwidCI6IjQyYjY5MjNhLWZmMzUtNDY5Yy05YzZhLWZhNDkwY2M4YTY0MSJ9"
+    },
+    {
+      "id": 9,
+      "name": "Disaster and Risk Management ",
+      "nepali_term": "प्राकृतिक प्रकोप र जोखिम",
+      "iframe_src": "https://app.powerbi.com/view?r=eyJrIjoiOWE2NGI2OWYtNDFjYy00N2E0LTg3ZDYtZjczNWI5ZjM3MGQ5IiwidCI6IjQyYjY5MjNhLWZmMzUtNDY5Yy05YzZhLWZhNDkwY2M4YTY0MSJ9"
+    },
+    {
+      "id": 10,
+      "name": "Personal Details ",
+      "nepali_term": "व्यक्तिगत विवरण",
+      "iframe_src": "https://app.powerbi.com/view?r=eyJrIjoiOWE2NGI2OWYtNDFjYy00N2E0LTg3ZDYtZjczNWI5ZjM3MGQ5IiwidCI6IjQyYjY5MjNhLWZmMzUtNDY5Yy05YzZhLWZhNDkwY2M4YTY0MSJ9"
+    }
+  ]
+}
