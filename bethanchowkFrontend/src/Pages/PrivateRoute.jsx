@@ -19,12 +19,13 @@
 // PrivateRoute.jsx
 import React from "react";
 import { Route, Navigate } from "react-router-dom";
-import { useAuth } from './AuthContext';  // Adjust the import path
+import { useAuth } from "./AuthContext";  // Adjust the import path
 
 const PrivateRoute = ({ element }) => {
-  const { authenticated } = useAuth();
+  const { isLoggedIn } = useAuth();
 
-  return authenticated ? element : <Navigate to="/login" />;
+  return isLoggedIn ? element : <Navigate to="/login" />;
 };
 
 export default PrivateRoute;
+

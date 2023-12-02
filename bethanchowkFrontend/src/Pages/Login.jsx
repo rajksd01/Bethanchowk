@@ -121,8 +121,54 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "./AuthContext";
 
-const Login = ({ checkAuthentication }) => {
-  const navigate = useNavigate();
+// const Login = ({ checkAuthentication }) => {
+//   const navigate = useNavigate();
+//   const { login } = useAuth();
+
+//   const [credentials, setCredentials] = useState({
+//     email: "",
+//     password: "",
+//   });
+
+//   const [error, setError] = useState("");
+//   const [loading, setLoading] = useState(false);
+
+//   const handleInputChange = (e) => {
+//     setCredentials({
+//       ...credentials,
+//       [e.target.name]: e.target.value,
+//     });
+//   };
+
+//   const handleLogin = async () => {
+//     setLoading(true);
+
+//     try {
+//       const response = await axios.post(
+//         "https://bethanchowk.vercel.app/api/login",
+//         credentials,
+//         { withCredentials: true }
+//       );
+
+//       console.log(response.data.message);
+
+//       // Call login function on successful login
+//       login();
+
+//       checkAuthentication();
+
+//       navigate("/home");
+//     } catch (err) {
+//       setError("Invalid email or password");
+//       setTimeout(() => {
+//         setError("");
+//       }, 5000);
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+const Login = () => {
   const { login } = useAuth();
 
   const [credentials, setCredentials] = useState({
@@ -152,12 +198,7 @@ const Login = ({ checkAuthentication }) => {
 
       console.log(response.data.message);
 
-      // Call login function on successful login
-      login();
-
-      checkAuthentication();
-
-      navigate("/home");
+      login(); // Update the login state in the AuthContext
     } catch (err) {
       setError("Invalid email or password");
       setTimeout(() => {
@@ -167,6 +208,8 @@ const Login = ({ checkAuthentication }) => {
       setLoading(false);
     }
   };
+
+
 
   return (
     <div className="flex items-center justify-center h-screen">
