@@ -1,15 +1,19 @@
 //
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import "./Home.css";
 
 function Home() {
-
-  frame.addEventListener("load", ev => {
-    const new_style_element = document.createElement("style");
-    new_style_element.textContent = ".logoBar { display: none; }"
-    ev.target.contentDocument.head.appendChild(new_style_element);
-});
+  useEffect(() => {
+    const iframe = document.querySelector("iframe");
+    if (iframe) {
+      const iframeDocument = iframe.contentWindow.document;
+      const heading = iframeDocument.querySelector("div.logoBar");
+      if (heading) {
+        heading.style.display = "none";
+      }
+    }
+  }, []);
   const data = [
     {
       id: 1,
