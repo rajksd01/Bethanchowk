@@ -37,7 +37,7 @@ const Body = () => {
       }
     } catch (error) {
       console.error("Error checking authentication:", error);
-      setAuthenticated(false);
+      setAuthenticated(true);
 
       if (window.location.pathname !== "/") {
         navigate("/login");
