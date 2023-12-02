@@ -22,10 +22,17 @@ const Body = () => {
 
   const checkAuthentication = async () => {
     try {
-      const response = await axios.get("https://bethanchowk.vercel.app/api/isloggedin", { withCredentials: true });
+      const response = await axios.get(
+        "https://bethanchowk.vercel.app/api/isloggedin",
+        { withCredentials: true }
+      );
+      console.log(response);
       setAuthenticated(response?.data?.message === "User verified");
 
-      if (response?.data?.message === "User verified" && window.location.pathname !== "/") {
+      if (
+        response?.data?.message === "User verified" &&
+        window.location.pathname !== "/"
+      ) {
         navigate("/home");
       }
     } catch (error) {
@@ -46,10 +53,15 @@ const Body = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<Login checkAuthentication={checkAuthentication} />} />
+      <Route
+        path="/"
+        element={<Login checkAuthentication={checkAuthentication} />}
+      />
       <Route
         path="/home"
-        element={<PrivateRoute element={<Home />} authenticated={authenticated} />}
+        element={
+          <PrivateRoute element={<Home />} authenticated={authenticated} />
+        }
       />
       <Route path="/logout" element={<LogoutComponent />} />
       <Route path="*" element={<Navigate to="/" />} />
