@@ -21,11 +21,12 @@ const Body = () => {
 
   const checkAuthentication = async () => {
     try {
+      console.log("before making request")
       const response = await axios.get(
         "https://bethanchowk.vercel.app/api/isloggedin",
         { withCredentials: true }
       );
-      console.log(response);
+      console.log("after making request")
       setAuthenticated(response?.data?.message === "User verified");
 
       if (
