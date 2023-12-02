@@ -1,9 +1,8 @@
-//
 import { useState } from "react";
 import Header from "../components/Header";
-import "./Home.css";
- const Home=()=> {
-  
+import { useAuth } from "./AuthContext";
+const Home = () => {
+  const {authenticated}= useAuth();
   const data = [
     {
       id: 1,
@@ -100,7 +99,7 @@ import "./Home.css";
         ))}
       </div>
 
-      {selectedItem && (
+      { authenticated && selectedItem && (
         <iframe
           title="Report Section"
           width="100%"
@@ -112,7 +111,6 @@ import "./Home.css";
       )}
     </>
   );
-}
-
+};
 
 export default Home;

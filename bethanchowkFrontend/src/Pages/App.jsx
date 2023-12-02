@@ -49,24 +49,48 @@
 // next code
 
 
-// App.js
-import React from "react";
+// // App.js
+// import React from "react";
+// import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+// import Body from "./Body";
+// import { AuthProvider } from "./AuthContext";
+// import PrivateRoute from "./PrivateRoute";
+
+// const App = () => {
+//   return (
+//     <Router>
+//       <AuthProvider>
+//         <Routes>
+//           <Route path="/" element={<Navigate to="/login" />} />
+//           <Route path="/login" element={<Body />} />
+//           <Route path="/*" element={<PrivateRoute />} />
+//         </Routes>
+//       </AuthProvider>
+//     </Router>
+//   );
+// };
+
+// export default App;
+
+
+// App.jsx
+
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Body from "./Body";
-import { AuthProvider } from "./AuthContext";
 import PrivateRoute from "./PrivateRoute";
+import { AuthProvider } from './AuthContext';  // Adjust the import path
 
 const App = () => {
   return (
-    <Router>
-      <AuthProvider>
+    <AuthProvider>
+      <Router>
         <Routes>
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<Body />} />
           <Route path="/*" element={<PrivateRoute />} />
         </Routes>
-      </AuthProvider>
-    </Router>
+      </Router>
+    </AuthProvider>
   );
 };
 
