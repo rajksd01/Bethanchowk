@@ -11,11 +11,19 @@ const router = express.Router();
 // setting up dotenv
 import "dotenv/config";
 const corsOptions = {
-  origin: "https://bethanchowk-frontend.vercel.app",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  origin: (origin, callback) => {
+    const allowedOrigins = ['https://bethanchowk-frontend.vercel.app'];
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 204,
 };
+
 
 app.use(express.json({ limit: "16KB" }));
 app.use(cookieParser());
