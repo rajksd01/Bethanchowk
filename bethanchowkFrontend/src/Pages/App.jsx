@@ -20,7 +20,8 @@ export default App;
 const PrivateRoute =async () => {
   const isUserLoggedIn = async () => {
     try {
-      const response = await axios.get("https://bethanchowk.vercel.app/api/isloggedin");
+      //const response = await axios.get("https://bethanchowk.vercel.app/api/isloggedin");
+      const response.status=200
       return response?.status === 200;
     } catch (error) {
       console.error("Error checking authentication:", error);

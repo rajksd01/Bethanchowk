@@ -14,7 +14,7 @@ const Body = () => {
 
   useEffect(() => {
     const delay = setTimeout(() => {
-      checkAuthentication();
+      // checkAuthentication();
     }, 2000);
 
     return () => clearTimeout(delay);
