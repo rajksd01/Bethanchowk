@@ -32,7 +32,7 @@ const Login = ({ checkAuthentication }) => {
 
       console.log(response.data.message);
 
-      //checkAuthentication();
+      checkAuthentication();
 
       navigate("/home");
     } catch (err) {
