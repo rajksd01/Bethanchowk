@@ -35,7 +35,7 @@ export const logIn = async (req, res) => {
   }
 
   const token = await user.generateAccessToken();
-
+  res.setHeader("Access-Control-Allow-Credentials", "true");
   return res
     .status(200)
     .cookie("token", token, {
