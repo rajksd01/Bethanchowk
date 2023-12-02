@@ -32,7 +32,7 @@ app.use(express.static("public "));
 app.use(express.urlencoded({ extended: true, limit: "16KB" }));
 app.use(router);
 app.use("/api", authRoutes);
-app.options('/api/login', cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 
 app.get("/", (req, res) => {
