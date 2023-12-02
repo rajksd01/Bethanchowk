@@ -13,11 +13,10 @@ const Body = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const delay = setTimeout(() => {
-      checkAuthentication();
-    }, 2000);
-
-    return () => clearTimeout(delay);
+    // const delay = setTimeout(() => {
+    //   checkAuthentication();
+    // }, 3000);
+    checkAuthentication();
   }, [navigate]);
 
   const checkAuthentication = async () => {
