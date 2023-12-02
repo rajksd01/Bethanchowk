@@ -2,8 +2,7 @@
 import { useState } from "react";
 import Header from "../components/Header";
 import "./Home.css";
-
-function Home() {
+ const Home=()=> {
   
   const data = [
     {
@@ -114,5 +113,6 @@ function Home() {
     </>
   );
 }
+
 
 export default Home;
