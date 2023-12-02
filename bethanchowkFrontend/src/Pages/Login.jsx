@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const Login = ({ checkAuthentication }) => {
   const navigate = useNavigate();
@@ -29,12 +30,11 @@ const Login = ({ checkAuthentication }) => {
         credentials,
         { withCredentials: true }
       );
-
+      const { token } = response.data;
+      setTokenInCookies(token);
       console.log(response.data.message);
-
-      checkAuthentication();
-
       navigate("/home");
+      checkAuthentication();
     } catch (err) {
       setError("Invalid email or password");
       setTimeout(() => {
@@ -43,6 +43,13 @@ const Login = ({ checkAuthentication }) => {
     } finally {
       setLoading(false);
     }
+    const setTokenInCookies = (token) => {
+      Cookies.set("token", token, {
+        expires: 1,
+        secure: true,
+        sameSite: "None",
+      });
+    };
   };
 
   return (
