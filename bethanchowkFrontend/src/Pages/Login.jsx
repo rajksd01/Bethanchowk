@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Cookies from "js-cookie";
 
 const Login = ({ checkAuthentication }) => {
   const navigate = useNavigate();
@@ -30,11 +29,12 @@ const Login = ({ checkAuthentication }) => {
         credentials,
         { withCredentials: true }
       );
-      const { token } = response.data;
-      setTokenInCookies(token);
+
       console.log(response.data.message);
-      navigate("/home");
+
       checkAuthentication();
+
+      navigate("/home");
     } catch (err) {
       setError("Invalid email or password");
       setTimeout(() => {
@@ -43,13 +43,6 @@ const Login = ({ checkAuthentication }) => {
     } finally {
       setLoading(false);
     }
-    const setTokenInCookies = (token) => {
-      Cookies.set("token", token, {
-        expires: 1,
-        secure: true,
-        sameSite: "None",
-      });
-    };
   };
 
   return (
@@ -58,6 +51,7 @@ const Login = ({ checkAuthentication }) => {
         <img src="/logo_bgp.png" alt="logo" className="h-48 mb-4" />
         <h2 className="text-2xl font-semibold mb-4">Login</h2>
 
+        {/* Display error message with horizontal line animation */}
         {error && (
           <div className="relative w-full bg-red-500 text-white p-2 mb-4">
             {error}

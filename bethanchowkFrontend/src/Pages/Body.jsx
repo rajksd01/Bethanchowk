@@ -22,15 +22,10 @@ const Body = () => {
 
   const checkAuthentication = async () => {
     try {
-      //const response = await axios.get("https://bethanchowk.vercel.app/api/isloggedin", { withCredentials: true });
-      const response = localStorage.getItem("token");
-      setAuthenticated(!!response)
-      // setAuthenticated(response?.data?.message === "User verified");
+      const response = await axios.get("https://bethanchowk.vercel.app/api/isloggedin", { withCredentials: true });
+      setAuthenticated(response?.data?.message === "User verified");
 
-      // if (response?.data?.message === "User verified" && window.location.pathname !== "/") {
-      //   navigate("/home");
-      // }
-      if(!!response && window.location.pathname !== "/"){
+      if (response?.data?.message === "User verified" && window.location.pathname !== "/") {
         navigate("/home");
       }
     } catch (error) {
