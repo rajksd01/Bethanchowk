@@ -70,7 +70,7 @@ export const isUserLoggedIn = async (req, res) => {
 
   // Check if the token is present
   if (!userToken) {
-    return res.status(404).json({ message: "User not logged in" });
+    return res.status(400).json({ message: "User not logged in" });
   }
 
   try {
