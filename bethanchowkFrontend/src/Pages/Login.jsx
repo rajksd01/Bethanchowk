@@ -170,6 +170,7 @@ import { useAuth } from "./AuthContext";
 
 const Login = () => {
   const { login } = useAuth();
+  const navigate = useNavigate();
 
   const [credentials, setCredentials] = useState({
     email: "",
@@ -199,6 +200,7 @@ const Login = () => {
       console.log(response.data.message);
 
       login(); // Update the login state in the AuthContext
+      navigate("/home")
     } catch (err) {
       setError("Invalid email or password");
       setTimeout(() => {
