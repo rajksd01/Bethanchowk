@@ -32,7 +32,8 @@ const Login = ({ checkAuthentication }) => {
 
       console.log(response.data.message);
 
-      
+      checkAuthentication();
+
       navigate("/home");
     } catch (err) {
       setError("Invalid email or password");

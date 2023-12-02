@@ -8,43 +8,41 @@ import LogoutComponent from "../components/Logout";
 import PrivateRoute from "./PrivateRoute";
 
 const Body = () => {
-  //const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [authenticated, setAuthenticated] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     const delay = setTimeout(() => {
-      // checkAuthentication();
+      checkAuthentication();
     }, 2000);
 
     return () => clearTimeout(delay);
   }, [navigate]);
 
   const checkAuthentication = async () => {
-    // try {
-    //   const response = await axios.get("https://bethanchowk.vercel.app/api/isloggedin", { withCredentials: true });
-    //   console.log(response)
-    //   setAuthenticated(response?.data?.message === "User verified");
+    try {
+      const response = await axios.get("https://bethanchowk.vercel.app/api/isloggedin", { withCredentials: true });
+      setAuthenticated(response?.data?.message === "User verified");
 
-    //   if (response?.data?.message === "User verified" && window.location.pathname !== "/") {
-    //     navigate("/home");
-    //   }
-    // } catch (error) {
-    //   console.error("Error checking authentication:", error);
-    //   setAuthenticated(false);
+      if (response?.data?.message === "User verified" && window.location.pathname !== "/") {
+        navigate("/home");
+      }
+    } catch (error) {
+      console.error("Error checking authentication:", error);
+      setAuthenticated(false);
 
-    //   if (window.location.pathname !== "/") {
-    //     navigate("/login");
-    //   }
-    // } finally {
-    //   setLoading(false);
-    // }
-    console.log("authenticated")
+      if (window.location.pathname !== "/") {
+        navigate("/login");
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <Routes>
