@@ -12,32 +12,26 @@ const Body = () => {
   const [authenticated, setAuthenticated] = useState(false);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   // const delay = setTimeout(() => {
-  //   //   checkAuthentication();
-  //   // }, 3000);
-  //   checkAuthentication();
-  // }, [navigate]);
+  useEffect(() => {
+    const delay = setTimeout(() => {
+      checkAuthentication();
+    }, 2000);
+
+    return () => clearTimeout(delay);
+  }, [navigate]);
 
   const checkAuthentication = async () => {
     try {
-      console.log("before making request")
-      const response = await axios.get(
-        "https://bethanchowk.vercel.app/api/isloggedin",
-        { withCredentials: true }
-      );
-      console.log("after making request")
+      const response = await axios.get("https://bethanchowk.vercel.app/api/isloggedin", { withCredentials: true });
+      console.log(response)
       setAuthenticated(response?.data?.message === "User verified");
 
-      if (
-        response?.data?.message === "User verified" &&
-        window.location.pathname !== "/"
-      ) {
+      if (response?.data?.message === "User verified" && window.location.pathname !== "/") {
         navigate("/home");
       }
     } catch (error) {
       console.error("Error checking authentication:", error);
-      setAuthenticated(true);
+      setAuthenticated(false);
 
       if (window.location.pathname !== "/") {
         navigate("/login");
@@ -53,15 +47,10 @@ const Body = () => {
 
   return (
     <Routes>
-      <Route
-        path="/"
-        element={<Login checkAuthentication={checkAuthentication} />}
-      />
+      <Route path="/" element={<Login checkAuthentication={checkAuthentication} />} />
       <Route
         path="/home"
-        element={
-          <PrivateRoute element={<Home />} authenticated={authenticated} />
-        }
+        element={<PrivateRoute element={<Home />} authenticated={authenticated} />}
       />
       <Route path="/logout" element={<LogoutComponent />} />
       <Route path="*" element={<Navigate to="/" />} />
