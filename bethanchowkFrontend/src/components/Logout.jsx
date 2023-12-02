@@ -7,7 +7,7 @@ const LogoutComponent = () => {
   const handleLogout = async () => {
     try {
       await axios.get(
-        "https://bethanchowk-2kkj.vercel.app/api/logout",
+        "https://bethanchowk.vercel.app/api/logout",
         {},
         { withCredentials: true }
       );

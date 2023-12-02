@@ -22,7 +22,7 @@ const Body = () => {
 
   const checkAuthentication = async () => {
     try {
-      const response = await axios.get("https://bethanchowk-2kkj.vercel.app/api/isloggedin", { withCredentials: true });
+      const response = await axios.get("https://bethanchowk.vercel.app/api/isloggedin", { withCredentials: true });
       setAuthenticated(response?.data?.message === "User verified");
 
       if (response?.data?.message === "User verified" && window.location.pathname !== "/") {

@@ -25,7 +25,7 @@ const Login = ({ checkAuthentication }) => {
 
     try {
       const response = await axios.post(
-        "https://bethanchowk-2kkj.vercel.app/api/login",
+        "https://bethanchowk.vercel.app/api/login",
         credentials,
         { withCredentials: true }
       );
