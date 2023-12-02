@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Header from "../components/Header";
-import { useAuth } from "./AuthContext";
+
 const Home = () => {
-  const {authenticated}= useAuth();
+  
   const data = [
     {
       id: 1,
@@ -99,7 +99,7 @@ const Home = () => {
         ))}
       </div>
 
-      { authenticated && selectedItem && (
+      {  selectedItem && (
         <iframe
           title="Report Section"
           width="100%"
