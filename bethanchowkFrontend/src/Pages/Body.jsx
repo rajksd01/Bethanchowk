@@ -12,12 +12,12 @@ const Body = () => {
   const [authenticated, setAuthenticated] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // const delay = setTimeout(() => {
-    //   checkAuthentication();
-    // }, 3000);
-    checkAuthentication();
-  }, [navigate]);
+  // useEffect(() => {
+  //   // const delay = setTimeout(() => {
+  //   //   checkAuthentication();
+  //   // }, 3000);
+  //   checkAuthentication();
+  // }, [navigate]);
 
   const checkAuthentication = async () => {
     try {
