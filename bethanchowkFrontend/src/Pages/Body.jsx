@@ -59,15 +59,13 @@
 
 // export default Body;
 
-
-
 // new code
 
 // Body.js
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
-import axios from "axios";
-import Home from "./Home.jsx";
+
+import Home from "./Home";
 import LogoutComponent from "../components/Logout";
 import PrivateRoute from "./PrivateRoute";
 import { useAuth } from "./AuthContext";
@@ -101,7 +99,9 @@ const Body = () => {
       <Route path="/" element={<Navigate to="/login" />} />
       <Route
         path="/home"
-        element={<PrivateRoute element={<Home />} authenticated={authenticated} />}
+        element={
+          <PrivateRoute element={<Home />} authenticated={authenticated} />
+        }
       />
       <Route path="/logout" element={<LogoutComponent />} />
       <Route path="*" element={<Navigate to="/login" />} />
@@ -110,4 +110,3 @@ const Body = () => {
 };
 
 export default Body;
-
