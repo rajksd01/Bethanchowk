@@ -21,24 +21,25 @@ const Body = () => {
   }, [navigate]);
 
   const checkAuthentication = async () => {
-    try {
-      const response = await axios.get("https://bethanchowk.vercel.app/api/isloggedin", { withCredentials: true });
-      console.log(response)
-      setAuthenticated(response?.data?.message === "User verified");
+    // try {
+    //   const response = await axios.get("https://bethanchowk.vercel.app/api/isloggedin", { withCredentials: true });
+    //   console.log(response)
+    //   setAuthenticated(response?.data?.message === "User verified");
 
-      if (response?.data?.message === "User verified" && window.location.pathname !== "/") {
-        navigate("/home");
-      }
-    } catch (error) {
-      console.error("Error checking authentication:", error);
-      setAuthenticated(false);
+    //   if (response?.data?.message === "User verified" && window.location.pathname !== "/") {
+    //     navigate("/home");
+    //   }
+    // } catch (error) {
+    //   console.error("Error checking authentication:", error);
+    //   setAuthenticated(false);
 
-      if (window.location.pathname !== "/") {
-        navigate("/login");
-      }
-    } finally {
-      setLoading(false);
-    }
+    //   if (window.location.pathname !== "/") {
+    //     navigate("/login");
+    //   }
+    // } finally {
+    //   setLoading(false);
+    // }
+    console.log("authenticated")
   };
 
   if (loading) {
