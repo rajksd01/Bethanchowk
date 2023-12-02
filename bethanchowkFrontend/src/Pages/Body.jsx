@@ -67,7 +67,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Home from "./Home";
+import Home from "./Home.jsx";
 import LogoutComponent from "../components/Logout";
 import PrivateRoute from "./PrivateRoute";
 import { useAuth } from "./AuthContext";

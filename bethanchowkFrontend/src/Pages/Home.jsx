@@ -1,19 +1,10 @@
 //
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Header from "../components/Header";
 import "./Home.css";
 
 function Home() {
-  useEffect(() => {
-    const iframe = document.querySelector("iframe");
-    if (iframe) {
-      const iframeDocument = iframe.contentWindow.document;
-      const heading = iframeDocument.querySelector("div.logoBar");
-      if (heading) {
-        heading.style.display = "none";
-      }
-    }
-  }, []);
+  
   const data = [
     {
       id: 1,
