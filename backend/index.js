@@ -11,7 +11,7 @@ const router = express.Router();
 // setting up dotenv
 import "dotenv/config";
 const corsOptions = {
-  origin: "https://bethanchowk-frontend.vercel.app/",
+  origin: "https://bethanchowk-frontend.vercel.app",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
   optionsSuccessStatus: 204,
