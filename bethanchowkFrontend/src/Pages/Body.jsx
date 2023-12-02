@@ -8,7 +8,7 @@ import LogoutComponent from "../components/Logout";
 import PrivateRoute from "./PrivateRoute";
 
 const Body = () => {
-  const [loading, setLoading] = useState(false);
+  //const [loading, setLoading] = useState(false);
   const [authenticated, setAuthenticated] = useState(false);
   const navigate = useNavigate();
 
@@ -42,9 +42,9 @@ const Body = () => {
     console.log("authenticated")
   };
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <Routes>

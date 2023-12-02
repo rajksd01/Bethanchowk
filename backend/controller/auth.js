@@ -38,7 +38,12 @@ export const logIn = async (req, res) => {
 
   return res
     .status(200)
-    .cookie("token", token, { httpOnly: true, expiresIn: "1d" })
+    .cookie("token", token, {
+      httpOnly: true,
+      expiresIn: "1d",
+      sameSite: "None",
+      secure: true,
+    })
     .json({ message: "User Logged In successfully", token: token });
 };
 export const logOut = (req, res) => {
