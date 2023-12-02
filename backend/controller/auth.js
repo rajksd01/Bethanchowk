@@ -67,6 +67,7 @@ export const isLoggedIn = async (req, res, next) => {
 
 export const isUserLoggedIn = async (req, res) => {
   const userToken = req.cookies.token;
+  console.log(userToken);
 
   // Check if the token is present
   if (!userToken) {
@@ -85,4 +86,3 @@ export const isUserLoggedIn = async (req, res) => {
     return res.status(401).json({ message: "User not authorized" });
   }
 };
-
